@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -10,24 +11,37 @@
   <style>
     /* ---------- CSS VARIABLES ---------- */
     :root {
-      --bg-light: #f7f4e9;         /* eggshell / crème */
-      --bg-dark: #0b2545;          /* navy */
-      --text-light: #111111;       /* nearly black */
-      --text-dark: #ffffff;        /* white */
-      --accent: #3b82f6;           /* blue‑500 for links */
+      --bg-light: #f7f4e9;
+      /* eggshell / crème */
+      --bg-dark: #0b2545;
+      /* navy */
+      --text-light: #111111;
+      /* nearly black */
+      --text-dark: #ffffff;
+      /* white */
+      --accent: #3b82f6;
+      /* blue‑500 for links */
       --accent-dark: #e0b672;
       --font-base: 'Cambria', 'CMU Concrete', 'Noto Serif', serif;
       --sidebar-width: 260px;
     }
 
     html {
-    scroll-behavior: smooth;
+      scroll-behavior: smooth;
     }
+
     html {
-    font-size: 21px;  /* now 1 rem == 18 px */
+      font-size: 21px;
+      /* now 1 rem == 18 px */
     }
+
     /* ---------- BASE STYLES ---------- */
-    * { box-sizing: border-box; margin: 0; padding: 0; }
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
     body {
       font-family: var(--font-base);
       line-height: 1.6;
@@ -38,13 +52,20 @@
       background: var(--bg-light);
       color: var(--text-light);
     }
+
     body[data-theme="dark"] {
       background: var(--bg-dark);
       color: var(--text-dark);
     }
 
-    a { color: var(--accent); text-decoration: none; }
-    a:hover { text-decoration: underline; }
+    a {
+      color: var(--accent);
+      text-decoration: none;
+    }
+
+    a:hover {
+      text-decoration: underline;
+    }
 
     /* ---------- LAYOUT ---------- */
     .sidebar {
@@ -66,9 +87,19 @@
       max-width: 900px;
     }
 
-    section { margin-bottom: 3rem; }
-    h2 { margin-bottom: 1rem; font-size: 1.75rem; }
-    h3 { margin-top: 1rem; font-size: 1.25rem; }
+    section {
+      margin-bottom: 3rem;
+    }
+
+    h2 {
+      margin-bottom: 1rem;
+      font-size: 1.75rem;
+    }
+
+    h3 {
+      margin-top: 1rem;
+      font-size: 1.25rem;
+    }
 
     /* ---------- SIDEBAR CONTENT ---------- */
     .pfp {
@@ -78,21 +109,35 @@
       object-fit: cover;
       border: 3px solid var(--accent);
     }
-    .name { font-size: 1.25rem; font-weight: 700; text-align: center; }
-    .location { font-size: 0.9rem; text-align: center; opacity: 0.8; }
+
+    .name {
+      font-size: 1.25rem;
+      font-weight: 700;
+      text-align: center;
+    }
+
+    .location {
+      font-size: 0.9rem;
+      text-align: center;
+      opacity: 0.8;
+    }
+
     .socials {
       display: flex;
       gap: 0.75rem;
       margin-top: 0.5rem;
     }
+
     .socials a img {
       width: 24px;
       height: 24px;
       transition: transform 0.2s ease;
       filter: invert(0);
     }
-    
-    .socials a:hover img { transform: scale(1.15); }
+
+    .socials a:hover img {
+      transform: scale(1.15);
+    }
 
     /* ---------- EXPERIENCE CARDS ---------- */
     .project {
@@ -101,15 +146,18 @@
       gap: 1rem;
       margin-bottom: 1.5rem;
     }
+
     .project img {
       width: 100%;
       border-radius: 0.5rem;
     }
+
     .skills-list {
       display: flex;
       flex-wrap: wrap;
       gap: 1rem;
     }
+
     .skill {
       display: flex;
       align-items: center;
@@ -122,26 +170,36 @@
 
 
     .contrib-chart-wrapper {
-      text-align: center;    /* centers inline/inline-block children */
-      margin: 2rem 0;         /* optional vertical spacing */
+      text-align: center;
+      /* centers inline/inline-block children */
+      margin: 2rem 0;
+      /* optional vertical spacing */
     }
 
     .contrib-chart {
-      display: inline-block;  /* so it honors the wrapper’s text-align */
-      max-width: 100%;        /* responsive scaling */
+      display: inline-block;
+      /* so it honors the wrapper’s text-align */
+      max-width: 100%;
+      /* responsive scaling */
       height: auto;
     }
 
 
-    .skill img { width: 20px; height: 20px; }
+    .skill img {
+      width: 20px;
+      height: 20px;
+    }
 
     /* ---------- THEME TOGGLE ---------- */
     .theme-toggle {
       margin-top: auto;
       border: 1px solid currentColor;
-      display: inline-flex;       /* lays out icon and span in a row */
-      align-items: center;        /* vertically center them */
-      gap: 0.5rem;                /* space between icon and text */
+      display: inline-flex;
+      /* lays out icon and span in a row */
+      align-items: center;
+      /* vertically center them */
+      gap: 0.5rem;
+      /* space between icon and text */
       padding: 0.5rem 1.1rem;
       border-radius: 9999px;
       cursor: pointer;
@@ -150,19 +208,34 @@
     }
 
     .theme-toggle:hover img {
-    transform: scale(1.15);
+      transform: scale(1.15);
     }
-    body[data-theme="dark"]  .resume-icon { filter: invert(1); }
-    body[data-theme="light"] .resume-icon { filter: invert(0); }
-    body[data-theme="dark"]  .svg-black { filter: invert(1); }
-    body[data-theme="light"] .svg-black { filter: invert(0); }
+
+    body[data-theme="dark"] .resume-icon {
+      filter: invert(1);
+    }
+
+    body[data-theme="light"] .resume-icon {
+      filter: invert(0);
+    }
+
+    body[data-theme="dark"] .svg-black {
+      filter: invert(1);
+    }
+
+    body[data-theme="light"] .svg-black {
+      filter: invert(0);
+    }
 
 
     body[data-theme="light"] .pfp {
-            border-color: var(--accent); /* blue in light mode */
+      border-color: var(--accent);
+      /* blue in light mode */
     }
+
     body[data-theme="dark"] .pfp {
-            border-color: var(--accent-dark); /* white in dark mode */
+      border-color: var(--accent-dark);
+      /* white in dark mode */
     }
 
 
@@ -171,41 +244,211 @@
       background: var(--text-light);
       color: var(--bg-light);
     }
+
     /*   Dark mode button: light text on dark background → flip too   */
     body[data-theme="dark"] .theme-toggle {
       background: var(--text-dark);
       color: var(--bg-dark);
     }
-    .theme-toggle:hover { opacity: 0.85; }
+
+    .theme-toggle:hover {
+      opacity: 0.85;
+    }
 
     /* 1) Define keyframes for a little back-and-forth rotation */
-  @keyframes wave {
-    0%   { transform: rotate(0deg); }
-    15%  { transform: rotate(14deg); }
-    30%  { transform: rotate(-8deg); }
-    45%  { transform: rotate(14deg); }
-    60%  { transform: rotate(-4deg); }
-    75%  { transform: rotate(10deg); }
-    100% { transform: rotate(0deg); }
-  }
+    @keyframes wave {
+      0% {
+        transform: rotate(0deg);
+      }
 
-  /* 2) Make the <span> inline-block and set the pivot point */
-  .wave-emoji {
-    display: inline-block;
-    transform-origin: 70% 70%; /* pivot roughly around the “wrist” */
-  }
+      15% {
+        transform: rotate(14deg);
+      }
 
-  /* 3) On hover, trigger the animation for 1 second */
-  h4:hover .wave-emoji {
-  animation: wave 1s ease-in-out;
-  }
+      30% {
+        transform: rotate(-8deg);
+      }
+
+      45% {
+        transform: rotate(14deg);
+      }
+
+      60% {
+        transform: rotate(-4deg);
+      }
+
+      75% {
+        transform: rotate(10deg);
+      }
+
+      100% {
+        transform: rotate(0deg);
+      }
+    }
+
+    /* 2) Make the <span> inline-block and set the pivot point */
+    .wave-emoji {
+      display: inline-block;
+      transform-origin: 70% 70%;
+      /* pivot roughly around the “wrist” */
+    }
+
+    /* 3) On hover, trigger the animation for 1 second */
+    h4:hover .wave-emoji {
+      animation: wave 1s ease-in-out;
+    }
+
+
+    .tab-pane {
+      display: none;
+    }
+
+    .tab-pane.active {
+      display: block;
+    }
+
+    .tab-btn.active {
+      background: currentColor;
+      color: var(--bg-light);
+    }
+
+    .tab-box {
+      width: 125%;
+      /* you can adjust between 70–85% here */
+      max-width: 110rem;
+      /* never grow beyond a nice reading measure */
+      margin: 2rem auto;
+      /* vertical spacing + auto center */
+      border: none;
+      /* box outline in your text color */
+      /* border-radius: 0.75rem; */
+      /* softly rounded corners */
+      overflow: hidden;
+      /* clip any children borders */
+      background: inherit;
+      /* keep the body/bg theme behind it */
+    }
+
+
+    .tab-box .tabs {
+      display: flex;
+      border: 3px solid currentColor;
+      border-radius: 0.5rem;
+      /* border-bottom: 1px solid currentColor; */
+      background: inherit;
+      /* same as box background */
+      gap: 1rem;
+      /* padding: 0.5rem 1rem; */
+    }
+
+    .tab-box .tab-content {
+      background: inherit;
+      /* still transparent to show page bg */
+      padding: 1.5rem 1rem;
+      /* inner padding for your sections */
+    }
+
+    /* ensure your tabs span the full box width */
+    .tabs {
+      display: flex;
+    }
+
+    .tab-btn {
+      flex: 1;
+      /* each tab takes equal width */
+      text-align: center;
+      /* centre the label */
+      padding: 0.75rem 0;
+      /* vertical padding, no horizontal so flex handles width */
+      background: transparent !important;
+      border: none;
+      font-weight: 600;
+      cursor: pointer;
+      transition: none;
+    }
+
+    /* highlight the active tab */
+    .tab-btn.active {
+      background: currentColor;
+      /* fill the tab in your theme’s colour */
+      color: var(--bg-light);
+      /* light text on dark tab in light mode */
+    }
+
+    body[data-theme="dark"] .tab-btn.active {
+      color: var(--bg-dark);
+      /* dark text on light tab in dark mode */
+    }
+
+    /* panes fit inside the same box */
+    .tab-pane {
+      display: none;
+      padding: 1.5rem;
+      /* comfortable inner gutter */
+    }
+
+    .tab-pane.active {
+      display: block;
+    }
+
+    .tab-btn span {
+      display: inline-block;
+      padding: 0.5rem 7.5rem;
+      /* pill padding */
+      border-radius: 9999px;
+      /* makes it fully rounded */
+      transition: background-color 0.75s ease, color 0.75s ease;
+    }
+
+    /* 2) Update your span-pill rule to hard-code the light-mode/text colours: */
+    .tab-btn.active span {
+      background: var(--text-light);
+      /* black pill in light mode */
+      color: var(--bg-light);
+      /* eggshell text in light mode */
+    }
+
+    /* 3) And for dark mode: */
+    body[data-theme="dark"] .tab-btn.active span {
+      background: var(--text-dark);
+      /* white pill in dark mode */
+      color: var(--bg-dark);
+      /* navy text in dark mode */
+    }
+
+    .tab-btn span {
+      color: var(--text-light);
+    }
+
+    /* 2) Override for dark mode: inactive pills get white text */
+    body[data-theme="dark"] .tab-btn span {
+      color: var(--text-dark);
+    }
+
+    /* 3) Your existing active-pill rules still sit on top of this */
+    .tab-btn.active span {
+      background: var(--text-light);
+      color: var(--bg-light);
+    }
+
+    body[data-theme="dark"] .tab-btn.active span {
+      background: var(--text-dark);
+      color: var(--bg-dark);
+    }
+
 
 
     /* ---------- RESPONSIVE ---------- */
     @media (max-width: 768px) {
-      :root { --sidebar-width: 180px; }
-      main { padding: 1rem; }
+      :root {
+        --sidebar-width: 180px;
+      }
+
+      main {
+        padding: 1rem;
+      }
     }
+
     @media (max-width: 600px) {
       .sidebar {
         position: static;
@@ -214,13 +457,20 @@
         justify-content: space-between;
         padding: 1rem;
         height: auto;
-        border-bottom: 1px solid rgba(0,0,0,0.1);
+        border-bottom: 1px solid rgba(0, 0, 0, 0.1);
       }
-      main { margin: 0; }
-      .theme-toggle { margin: 0; }
+
+      main {
+        margin: 0;
+      }
+
+      .theme-toggle {
+        margin: 0;
+      }
     }
   </style>
 </head>
+
 <body data-theme="light">
   <div id="tsparticles" style="
   position: fixed;
@@ -236,158 +486,213 @@
     <div class="name">Adam Awadalla</div>
     <div class="location">📍 Sheffield, UK</div>
     <div class="socials">
-      <a href="https://linkedin.com/in/adamawadalla1" target="_blank" title="LinkedIn"><img src="assets/icons/linkedin.svg" alt="LinkedIn"/></a>
-      <a href="https://github.com/AdamAwadalla08" target="_blank" title="GitHub"><img src="assets/icons/github-mark.svg" alt="GitHub"  data-light="assets/icons/github-mark.svg"
-        data-dark="assets/icons/github-mark-white.svg"/></a>
-      <a href="assets/resume.pdf" target="_blank" title="Résumé"><img src="assets/icons/resume.svg" alt="Resume" class = "resume-icon"/></a>
+      <a href="https://linkedin.com/in/adamawadalla1" target="_blank" title="LinkedIn"><img
+          src="assets/icons/linkedin.svg" alt="LinkedIn" /></a>
+      <a href="https://github.com/AdamAwadalla08" target="_blank" title="GitHub"><img src="assets/icons/github-mark.svg"
+          alt="GitHub" data-light="assets/icons/github-mark.svg" data-dark="assets/icons/github-mark-white.svg" /></a>
+      <a href="assets/resume.pdf" target="_blank" title="Résumé"><img src="assets/icons/resume.svg" alt="Resume"
+          class="resume-icon" /></a>
     </div>
 
-    <nav class="toc">
-        <h4>Contents</h4>
-        <ul>
-          <li><a href="#education">Education</a></li>
-          <li><a href="#projects">Experience &amp; Projects</a></li>
-          <li><a href="#skills">Skills</a></li>
-          <li><a href="#extracurriculars">Extracurriculars</a></li>
-        </ul>
-    </nav>
+    <!-- <nav class="toc">
+      <h4>Contents</h4>
+      <ul>
+        <li><a href="#education">Education</a></li>
+        <li><a href="#projects">Experience &amp; Projects</a></li>
+        <li><a href="#skills">Skills</a></li>
+        <li><a href="#extracurriculars">Extracurriculars</a></li>
+      </ul>
+    </nav> -->
 
     <button class="theme-toggle" id="themeToggle">
-        <!-- Icon: start with the “light” (sun) version by default -->
-        <img
-          id="themeIcon"
-          src="assets/logo/dark-toggle.svg"
-          alt="Theme icon"
-          width="15"
-          height="15"
-          data-light="assets/icons/dark-toggle.svg"
-          data-dark="assets/icons/light-toggle.svg"
-        />
-        <span>   Switch Theme</span>
+      <!-- Icon: start with the “light” (sun) version by default -->
+      <img id="themeIcon" src="assets/logo/dark-toggle.svg" alt="Theme icon" width="15" height="15"
+        data-light="assets/icons/dark-toggle.svg" data-dark="assets/icons/light-toggle.svg" />
+      <span> Switch Theme</span>
     </button>
   </header>
 
   <!-- ---------- MAIN CONTENT ---------- -->
   <main>
+    <h2 style="color:red;">This portfolio is a work in progress, feel free to look!</h2>
     <!-- Education Section -->
     <section id="profile">
-        <h2>Who am I?</h2>
-        <h4>
-          Hi, I'm Adam
-          <span class="wave-emoji">👋</span>
-        </h4>
-        <p style="text-align: justify;"> A recent Mechanical Engineering master's graduate. Looking for roles in Structural Engineering, or Backend software development. I love turning mathematical and physical equations into code, and I love it even more if I can come up with those equations from observing them in action! My interests/favourite subjects are vibrations/waves, continuum mechanics, nonlinear systems, and mathematics.  In my free time, I do and coach <i>olympic</i> weightlifting. I am outgoing when I am interested in the topic of conversation (ask me about linear regressions😂).</p>
-      </section> 
-    <section id="education">
-      <h2>Education</h2>
-      <h4>Master's in Mechanical Engineering — University of Sheffield (2021-2025)</h4>
-      <p style="text-align: justify;">Heavily theory-backed degree at a top university. With a thesis on developing free open-source software for structural dynamics and modal analysis. While the thesis is submitted, I am still committed to improving the software package, through adding algorithms in the backend, and developing a "flow-sheet" style frontend.</p>
-      <p>Notable courses & grades:</p>
-      <ul  class="indented">
-        <li>Advanced Solid Mechanics — 76</li>
-        <li>Finite Element Modelling — 75</li>
-        <li>Numerical Mathematics — 75 </li>
-        <li>Advanced Dynamics — 71 </li>
-      </ul>
-      <h4>International Baccalaureate Diploma (2019-2021)</h4>
-      <ul class="indented">
-        <li>Total Score of 36/45</li>
-        <li>Higher Level Mathematics: 7/7 (A-Level: A*)</li>
-        <li>Higher Level Physics: 7/7 (A-Level: A*)</li>
-        <li>Higher Level English: 6/7 (A-Level: A)</li>
-        <li>Economics: 6/7 (A-Level: A)</li>
-        <li>Chemistry: 4/7 (A-Level: C)</li>
-        <li>Arabic Literature: 4/7 (A-Level: C)</li>
-        <li>Epistemology: A (A-Level: A*)</li>
-        <li>Physics Personal Essay: B (A-Level: A)</li>
-      </ul>
+      <h3>Who am I?</h3>
+      <h4>
+        Hi, I'm Adam
+        <span class="wave-emoji">👋</span>
+      </h4>
+      <p style="text-align: justify;"> A recent Mechanical Engineering master's graduate. Looking for roles in
+        Mechanical and structural Engineering, or scientific software development. I love turning mathematical and
+        physical equations into
+        code, and I love it even more if I can come up with those equations from observing them in action! My
+        interests/favourite subjects are vibrations/waves, continuum mechanics, nonlinear systems, and applied
+        mathematics. In my free time, I do and coach <i>olympic</i> weightlifting. I am outgoing and communicative.</p>
     </section>
 
     <style>
-        /* 1️⃣  Indent the whole list as one block */
-        .indented {            /* applies to the <ul> */
-          padding-left: 2rem;  /* or 20px, etc. */
-        }
-      
-      </style>
+      /* 1️⃣  Indent the whole list as one block */
+      .indented {
+        /* applies to the <ul> */
+        padding-left: 2rem;
+        /* or 20px, etc. */
+      }
+    </style>
     <!-- Experience & Projects Section -->
-    <section id="projects">
-      <h2>Experience &amp; Projects</h2>
-
-      <div class="project">
-        <img src="assets/img/project1.png" alt="Screenshot of Project 1"/>
-        <div>
-          <h3>Open-Source Python library for Dynamics</h3>
-          <ul>
-            <li>Collaborative <b>Software Development</b> project with academics.</li>
-            <li>Aimed to develop an open-source Python library for structural dynamics and modal analysis, to reduce uncertainty in mechanical, aerospace, and structural engineering practice, by standardising analysis of experimental and operational structural dynamic data. <b>£20K p.a. per device saved</b> in software license fees.</li>
-          </ul>
-          <p><a href="https://github.com/yourusername/project1" target="_blank">View on GitHub ↗</a></p>
-        </div>
+    <div class="tab-box">
+      <div class="tabs">
+        <button class="tab-btn active" data-target="experience-pane"> <span>Experience</span></button>
+        <button class="tab-btn" data-target="academic-pane"><span>Academic</span></button>
       </div>
 
-      <div class="project">
-        <img src="assets/img/project2.png" alt="Screenshot of Project 2"/>
-        <div>
-          <h3>Project ECHO</h3>
-          <ul>
-            <li>Machine Learning and Human Centred Design project.</li>
-            <li>Worked as part of a large multi-disciplinary team to design a custom-fitted hearing aid with AI powered selective noise cancelling.</li>
-          </ul>
-          <p><a href="https://github.com/yourusername/project1" target="_blank">View on GitHub ↗</a> — <a href="https://github.com/yourusername/project1" target="_blank">View Images ↗</a></p>
-        </div>
-      </div>
+      <div class="tab-content">
+        <div id="experience-pane" class="tab-pane active">
+          <!-- your Experience & Projects section here -->
+          <section id="projects">
+            <h2>Experience &amp; Projects</h2>
 
-      <div class="project">
-        <img src="assets/img/project3.png" alt="Screenshot of Project 3"/>
-        <div>
-          <h3>Desiging a heterogenuous beam population for PBSHM</h3>
-          <ul>
-            <li>Research based project involving Experimental Design, Testing, and Data and Attribute Analysis</li>
-            <li>Provided a novel dataset of </li>
-          </ul>
-          <p><a href="https://github.com/yourusername/project1" target="_blank">View on GitHub ↗</a> — <a href="https://github.com/yourusername/project1" target="_blank">View Images ↗</a></p>
-        </div>
-      </div>
-      <!-- Duplicate .project blocks to add more projects -->
-    </section>
+            <div class="project">
+              <img src="assets/img/project1.png" alt="Screenshot of Project 1" />
+              <div>
+                <h3>Open-Source Python library for Dynamics</h3>
+                <ul>
+                  <li>Collaborative <b>Software Development</b> project with academics.</li>
+                  <li>Created an open-source Python library for structural dynamics and modal analysis.</li>
+                  <li>Contributed over <b>2000 lines </b> so far.</li>
+                  <li>Reducing uncertainty in mechanical, aerospace, and structural engineering practice</li>
+                  <li> Standardises analysis of experimental and operational structural dynamic data.</li>
+                  <li><b>£20K p.a. per device saved</b> in software license fees.</li>
+                </ul>
+                <p><a href="https://github.com/yourusername/project1" target="_blank">View on GitHub ↗</a></p>
+              </div>
+            </div>
+
+            <div class="project">
+              <img src="assets/img/echo.svg" alt="echo_logo" />
+              <div>
+                <h3>Project ECHO</h3>
+                <ul>
+                  <li>Machine Learning and <i>Human Centred</i> Design project.</li>
+                  <li>Worked as part of a large multi-disciplinary team to design a custom-fitted hearing aid with AI
+                    powered selective noise cancelling.</li>
+                </ul>
+                <p><a href="https://github.com/yourusername/project1" target="_blank">View on GitHub ↗</a> — <a
+                    href="https://github.com/yourusername/project1" target="_blank">View Images ↗</a></p>
+              </div>
+            </div>
+
+            <div class="project">
+              <img src="assets/img/sure.jpg" alt="sure test rig" />
+              <div>
+                <h3>Desiging a heterogenuous beam population for PBSHM</h3>
+                <ul>
+                  <li>Research based project involving Experimental Design, Testing, and Data and Attribute Analysis
+                  </li>
+                  <li> </li>
+                </ul>
+                <p><a href="https://github.com/yourusername/project1" target="_blank">View on GitHub ↗</a> — <a
+                    href="https://github.com/yourusername/project1" target="_blank">View Images ↗</a></p>
+              </div>
+            </div>
+
+            <div class="project">
+              <img src="assets/img/hex.png" alt="hex landing gear" />
+              <div>
+                <h3>Design of an emergency landing gear system</h3>
+                <ul>
+                  <li> </li>
+                  <li></li>
+                </ul>
+                <p><a href="https://github.com/yourusername/project1" target="_blank">View on GitHub ↗</a> — <a
+                    href="https://github.com/yourusername/project1" target="_blank">View Images ↗</a></p>
+              </div>
+            </div>
+            <!-- Duplicate .project blocks to add more projects -->
+          </section>
+        </div><!-- end of experience -->
+
+        <div id="academic-pane" class="tab-pane">
+          <!-- your Education section here -->
+          <section id="education">
+            <h2>Education</h2>
+            <h4>Master's in Mechanical Engineering — University of Sheffield (2021-2025) </h4>
+            <h5>Upper Second class (2:1) with
+              Honours, First class achieved in final year/masters thesis.</h5>
+            <p style="text-align: justify;">Excellent theory-backed and hands-on degree at a top 100 worldwide
+              university. With a thesis on
+              developing
+              free open-source software for structural dynamics and modal analysis. While the thesis is submitted, I am
+              still committed to improving the software package, through adding algorithms in the backend, and
+              developing
+              a
+              "flow-sheet" style frontend.</p>
+            <p>Notable courses & grades:</p>
+            <ul class="indented">
+              <li>Advanced Solid Mechanics — 76</li>
+              <li>Finite Element Modelling — 75</li>
+              <li>Numerical Mathematics — 75 </li>
+              <li>Advanced Dynamics — 71 </li>
+            </ul>
+            <h4>International Baccalaureate Diploma (2019-2021)</h4>
+            <ul class="indented">
+              <li>Total Score of 36/45</li>
+              <li>Higher Level Mathematics: 7/7 (A-Level: A*)</li>
+              <li>Higher Level Physics: 7/7 (A-Level: A*)</li>
+              <li>Higher Level English: 6/7 (A-Level: A)</li>
+              <li>Economics: 6/7 (A-Level: A)</li>
+              <li>Chemistry: 4/7 (A-Level: C)</li>
+              <li>Arabic Literature: 4/7 (A-Level: C)</li>
+              <li>Epistemology: A (A-Level: A*)</li>
+              <li>Physics Personal Essay: B (A-Level: A)</li>
+            </ul>
+          </section>
+        </div> <!-- end of academic -->
+      </div> <!-- end of "content" -->
+    </div> <!-- end of "tab section" -->
 
     <!-- Skills Section -->
     <section id="skills">
       <h2>Skills</h2>
       <h3>Technical Skills</h3>
       <div class="skills-list">
-        <span class="skill"><img src="assets/icons/python.svg" alt="python logo"/>Python</span>
-        <span class="skill"><img src="assets/icons/matlab.svg" alt="matlab logo"/>MATLAB</span>
-        <span class="skill"><img src="assets/icons/julia.svg" alt="julia logo" data-light="assets/icons/julia.svg" data-dark="assets/icons/julia-dark.svg"/></span>
-        <span class="skill"><img src="assets/icons/fortran.svg" alt="FORTRAN logo"/>FORTRAN 2003-18</span>
-        <span class="skill"><img src="assets/icons/C.svg" alt="C logo"/>C/C++</span>
-        <span class="skill"><img src="assets/icons/git.svg" alt="git logo"/>git version control</span>
-        <span class="skill"><img src="assets/icons/cmake.svg" alt="git logo"/>CMake</span>
-        <span class="skill"><img src="assets/icons/autodesk.svg" alt="autodesk"/>Autodesk 2D/3D Modelling Suites</span>
-        <span class="skill"><img src="assets/icons/autodesk-fusion-360-seeklogo.png" alt="autodesk"/>Fusion 360 API</span>
-        <span class="skill"><img src="assets/icons/java.svg" alt="java"/>JAVA</span>
-        <span class="skill"><img src="assets/icons/ANSYS.svg" alt="Ansys logo"/>ANSYS</span>
-        <span class="skill"><img src="assets/icons/latex.svg" alt="latex logo" class="svg-black"/>Typesetting</span>
-        <span class="skill"><img src="assets/icons/html.svg" alt="html logo"/>Simple Frontend Design</span>
-     </div>  
-     
-     <h3>Soft Skills</h3>
-     <div class ="skills-list"> 
-     
-        <span class="skill"><img src="assets/icons/communication.svg" alt="comm icon" class="svg-black"/>Adaptive Communication</span>
-        <span class="skill"><img src="assets/icons/conf-res.svg" alt="conflict icon" class="svg-black"/>Conflict Resolution</span>
-        <span class="skill"><img src="assets/icons/Presentation.svg" alt="pres icon" class="svg-black"/>Presentation</span>
-        <span class="skill"><img src="assets/icons/Teaching.svg" alt="conflict icon" class="svg-black"/>Teaching/Coaching</span>
-        <span class="skill"><img src="assets/icons/latex.svg" alt="latex logo" class="svg-black"/>Technical Writing</span>
+        <span class="skill"><img src="assets/icons/python.svg" alt="python logo" />Python</span>
+        <span class="skill"><img src="assets/icons/matlab.svg" alt="matlab logo" />MATLAB</span>
+        <span class="skill"><img src="assets/icons/julia.svg" alt="julia logo" data-light="assets/icons/julia.svg"
+            data-dark="assets/icons/julia-dark.svg" /></span>
+        <span class="skill"><img src="assets/icons/fortran.svg" alt="FORTRAN logo" />FORTRAN 2003-18</span>
+        <span class="skill"><img src="assets/icons/C.svg" alt="C logo" />C/C++</span>
+        <span class="skill"><img src="assets/icons/git.svg" alt="git logo" />git version control</span>
+        <span class="skill"><img src="assets/icons/cmake.svg" alt="git logo" />CMake</span>
+        <span class="skill"><img src="assets/icons/autodesk.svg" alt="autodesk" />Autodesk 2D/3D Modelling Suites</span>
+        <span class="skill"><img src="assets/icons/autodesk-fusion-360-seeklogo.png" alt="autodesk" />Fusion 360
+          API</span>
+        <span class="skill"><img src="assets/icons/java.svg" alt="java" />JAVA</span>
+        <span class="skill"><img src="assets/icons/ANSYS.svg" alt="Ansys logo" />ANSYS</span>
+        <span class="skill"><img src="assets/icons/latex.svg" alt="latex logo" class="svg-black" />Typesetting</span>
+        <span class="skill"><img src="assets/icons/html.svg" alt="html logo" />Simple Frontend Design</span>
+      </div>
+
+      <h3>Soft Skills</h3>
+      <div class="skills-list">
+
+        <span class="skill"><img src="assets/icons/communication.svg" alt="comm icon" class="svg-black" />Adaptive
+          Communication</span>
+        <span class="skill"><img src="assets/icons/conf-res.svg" alt="conflict icon" class="svg-black" />Conflict
+          Resolution</span>
+        <span class="skill"><img src="assets/icons/Presentation.svg" alt="pres icon"
+            class="svg-black" />Presentation</span>
+        <span class="skill"><img src="assets/icons/Teaching.svg" alt="conflict icon"
+            class="svg-black" />Teaching/Coaching</span>
+        <span class="skill"><img src="assets/icons/latex.svg" alt="latex logo" class="svg-black" />Technical
+          Writing</span>
       </div>
     </section>
 
     <!-- Extracurriculars Section -->
     <section id="extracurriculars">
-      <h2>Extracurriculars &amp; Personal</h2>
+      <h2>Outside the office</h2>
       <div class="project">
-        <img src="assets/icons/Yellow_txt-transp.svg" alt="Image of activity"/>
+        <img src="assets/icons/Yellow_txt-transp.svg" alt="Image of activity" />
         <div>
           <h3>Olympic Weightlifting coach at University Sports Club</h3>
           <ul>
@@ -402,13 +707,9 @@
     <section id="contributions">
       <h2>GitHub Contributions</h2>
       <div class="contrib-chart-wrapper">
-      <img
-        src="https://ghchart.rshah.org/AdamAwadalla08"
-        alt="Adam's GitHub contributions calendar"
-        style="max-width: 100%; height: auto;"
-        class="contrib-chart"
-      />
-    </div>
+        <img src="https://ghchart.rshah.org/AdamAwadalla08" alt="Adam's GitHub contributions calendar"
+          style="max-width: 100%; height: auto;" class="contrib-chart" />
+      </div>
     </section>
 
   </main>
@@ -417,9 +718,9 @@
 
   <!-- ---------- THEME TOGGLE SCRIPT ---------- -->
   <script>
-    const body      = document.body;
+    const body = document.body;
     const toggleBtn = document.getElementById('themeToggle');
-  
+
     /**
      * Swap every <img> that has both data-light and data-dark.
      * This covers:
@@ -434,11 +735,11 @@
           : img.dataset.light;
       });
     }
-  
+
     // ① On first load, assume “light” mode and swap all icons to their data-light version.
     //     (If you later want to read theme from localStorage, do that here instead.)
     updateIcons('light');
-  
+
     toggleBtn.addEventListener('click', () => {
       // 1. Read current theme (default “light” if not set)
       const current = body.getAttribute('data-theme') || 'light';
@@ -449,11 +750,24 @@
       // 4. Swap every img[data-light] → data-dark or vice versa
       updateIcons(next);
     });
+
+    document.querySelectorAll('.tab-btn').forEach(btn => {
+      btn.addEventListener('click', () => {
+        // 1. Remove “active” from all buttons & panes
+        document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
+        document.querySelectorAll('.tab-pane').forEach(p => p.classList.remove('active'));
+
+        // 2. Mark this button & its pane as active
+        btn.classList.add('active');
+        document.getElementById(btn.dataset.target).classList.add('active');
+      });
+    });
   </script>
-  <!-- tsparticles core -->
+
 
 
 
 
 </body>
+
 </html>
