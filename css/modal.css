@@ -1,0 +1,112 @@
+/* ---------- MODAL OVERLAY ---------- */
+.modal-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.85);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  /* hidden by default */
+  opacity: 0;
+  visibility: hidden;
+
+  /* fade in/out */
+  transition: opacity 0.4s ease, visibility 0s linear 0.4s;
+  z-index: 9999;
+}
+
+.modal-overlay.open {
+  opacity: 1;
+  visibility: visible;
+  transition: opacity 0.4s ease, visibility 0s linear 0s;
+}
+
+/* ---------- MODAL WINDOW ---------- */
+.modal {
+  width: min(92vw);
+  max-height: 85vh;
+  overflow: auto;
+  border-radius: 0.75rem;
+  border: 1px solid currentColor;
+  background: var(--bg-light);
+  color: var(--text-light);
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.35);
+
+  /* zoom + fade */
+  transform: scale(0.85);
+  opacity: 0;
+  transition: transform 0.4s ease, opacity 0.4s ease;
+}
+
+.modal-overlay.open .modal {
+  transform: scale(1);
+  opacity: 1;
+}
+
+/* ---------- THEME OVERRIDES ---------- */
+[data-theme="dark"] .modal {
+  background: var(--bg-dark);
+  color: var(--text-dark);
+}
+
+/* ---------- MODAL HEADER ---------- */
+.modal header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1rem 1rem 0.5rem 1rem;
+  border-bottom: 1px solid currentColor;
+}
+
+.modal header h4 {
+  margin: 0;
+  font-size: 1.1rem;
+}
+
+/* ---------- MODAL BODY ---------- */
+.modal .modal-body {
+  padding: 1rem;
+  line-height: 1.7;
+}
+
+.modal .modal-body img {
+  max-width: 100%;
+  height: auto;
+  border-radius: 0.5rem;
+}
+
+/* ---------- BUTTONS ---------- */
+.modal .close-btn,
+.read-more {
+  background: transparent;
+  border: 1px solid currentColor;
+  border-radius: 9999px;
+  cursor: pointer;
+  font: inherit;
+  color: inherit;
+  padding: 0.25rem 0.5rem;
+  font-size: 0.9rem;
+}
+
+.read-more {
+  display: inline-block;
+  margin-top: 0.75rem;
+  padding: 0.25rem 0.35rem;
+}
+
+
+.modal .close-btn:hover,
+.read-more:hover{
+  background: rgba(17, 17, 17, 0.1);  /* text-light with opacity */
+  transition: background-color 0.1s cubic-bezier(0.4, 0, 1, 1);
+}
+
+
+[data-theme="dark"] .modal .close-btn:hover,
+[data-theme="dark"] .read-more:hover{
+  background: rgba(255, 255, 255, 0.1);  /* text-light with opacity */
+  transition: background-color 0.1s cubic-bezier(0.4, 0, 1, 1);
+}
+
+

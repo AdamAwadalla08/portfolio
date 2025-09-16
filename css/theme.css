@@ -1,0 +1,16 @@
+/* ---------- THEME (LIGHT / DARK) ---------- */
+body[data-theme="light"] { background: var(--bg-light); color: var(--text-light); }
+body[data-theme="dark"]  { background: var(--bg-dark);  color: var(--text-dark); }
+
+body[data-theme="dark"]  .resume-icon { filter: invert(1); }
+body[data-theme="light"] .resume-icon { filter: invert(0); }
+
+body[data-theme="dark"]  .svg-black { filter: invert(1); }
+body[data-theme="light"] .svg-black { filter: invert(0); }
+
+body[data-theme="light"] .pfp { border-color: var(--accent); }
+body[data-theme="dark"]  .pfp { border-color: var(--accent-dark); }
+
+/* Flip the toggle pill colours per theme */
+body[data-theme="light"] .theme-toggle { background: var(--text-light); color: var(--bg-light); }
+body[data-theme="dark"]  .theme-toggle { background: var(--text-dark);  color: var(--bg-dark); }

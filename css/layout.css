@@ -1,0 +1,13 @@
+/* ---------- LAYOUT ---------- */
+.sidebar {
+  position: fixed; top: 0; left: 0;
+  width: var(--sidebar-width); height: 100%;
+  padding: 2rem 1rem;
+  display: flex; flex-direction: column; align-items: center; gap: 1rem;
+}
+
+main {
+  margin-left: var(--sidebar-width);
+  padding: 2rem 1rem;
+  max-width: 900px;
+}

@@ -1,0 +1,15 @@
+/* ---------- FUN BITS ---------- */
+/* Hand wave keyframes */
+@keyframes wave {
+  0% { transform: rotate(0deg); }
+  15% { transform: rotate(14deg); }
+  30% { transform: rotate(-8deg); }
+  45% { transform: rotate(14deg); }
+  60% { transform: rotate(-4deg); }
+  75% { transform: rotate(10deg); }
+  100% { transform: rotate(0deg); }
+}
+
+/* Make the span pivot properly and trigger on h3 hover */
+.wave-emoji { display: inline-block; transform-origin: 70% 70%; }
+h3:hover .wave-emoji { animation: wave 1s ease-in-out; }

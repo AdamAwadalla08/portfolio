@@ -1,0 +1,16 @@
+/* ---------- RESPONSIVE ---------- */
+@media (max-width: 768px) {
+  :root { --sidebar-width: 180px; }
+  main { padding: 1rem; }
+}
+
+@media (max-width: 600px) {
+  .sidebar {
+    position: static; width: auto;
+    flex-direction: row; justify-content: space-between;
+    padding: 1rem; height: auto;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+  }
+  main { margin: 0; }
+  .theme-toggle { margin: 0; }
+}
