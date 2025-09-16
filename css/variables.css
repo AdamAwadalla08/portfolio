@@ -1,0 +1,13 @@
+/* ---------- CSS VARIABLES ---------- */
+:root {
+  --bg-light: #f7f4e9; /* eggshell / crème */
+  --bg-dark: #0b2545;  /* navy */
+  --text-light: #111111; /* nearly black */
+  --text-dark: #ffffff;  /* white */
+  --accent: #3b82f6;     /* blue-500 for links */
+  --accent-dark: #e0b672;
+  --font-base: 'Cambria', 'CMU Concrete', 'Noto Serif', serif;
+  --sidebar-width: 260px;
+}
+
+html { font-size: 21px; /* 1rem == 21px */ }

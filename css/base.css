@@ -1,0 +1,17 @@
+/* ---------- BASE STYLES ---------- */
+html { scroll-behavior: smooth; }
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
+body {
+  font-family: var(--font-base);
+  line-height: 1.6;
+  transition: background 0.3s ease, color 0.3s ease;
+}
+
+a { color: var(--accent); text-decoration: none; }
+a:hover { text-decoration: underline; }
+
+h2 { margin-bottom: 1rem; font-size: 1.75rem; }
+h3 { margin-top: 1rem; font-size: 1.25rem; }
+section { margin-bottom: 3rem; }

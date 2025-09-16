@@ -1,0 +1,84 @@
+/* ---------- TABS ---------- */
+.tab-box {
+  width: 100%;
+  max-width: 110rem;
+  margin: 2rem auto;
+  border: none;
+  border-radius: 0.5rem;
+  overflow: hidden;
+  background: inherit;
+}
+
+.tab-box .tabs {
+  display: flex;
+  border: 3px solid currentColor;
+  border-radius: 2rem;
+  background: inherit;
+  gap: 1rem;
+}
+
+.tab-box .tab-content {
+  background: inherit;
+  padding: 1.5rem 1rem;
+}
+
+.tabs { display: flex; }
+
+.tab-btn {
+  flex: 1; text-align: center;
+  padding: 0.75rem 0;
+  background: transparent !important;
+  border: none; font-weight: 600; cursor: pointer;
+  transition: none;
+}
+
+/* Pills inside the tab buttons */
+.tab-btn span {
+  display: inline-block;
+  padding: 0.5rem 7.5rem;
+  border-radius: 9999px;
+  transition: background-color 0.75s ease, color 0.75s ease;
+  color: var(--text-light);
+}
+body[data-theme="dark"] .tab-btn span { color: var(--text-dark); }
+
+/* Active tab (span pill colours) */
+.tab-btn.active span {
+  background: var(--text-light);
+  color: var(--bg-light);
+}
+body[data-theme="dark"] .tab-btn.active span {
+  background: var(--text-dark);
+  color: var(--bg-dark);
+}
+
+/* Panes */
+.tab-pane { display: none; padding: 1.5rem; }
+.tab-pane.active { display: block; }
+
+
+/* Light theme hover */
+.tab-btn:hover span {
+  background: rgba(17, 17, 17, 0.1);  /* text-light with opacity */
+  transition: background-color 0.1s cubic-bezier(0.4, 0, 1, 1);
+}
+
+/* Dark theme hover */
+body[data-theme="dark"] .tab-btn:hover span {
+  background: rgba(255, 255, 255, 0.15); /* text-dark with opacity */
+  transition: background-color 0.1s cubic-bezier(0.4, 0, 1, 1);
+}
+
+
+
+/* to ensure they don't change colour when active? */
+.tab-btn.active:hover span {
+  background: var(--text-light);
+  color: var(--bg-light);
+}
+
+/* Dark theme hover */
+body[data-theme="dark"] .tab-btn.active:hover span {
+  background: var(--text-dark);
+  color: var(--bg-dark);
+}

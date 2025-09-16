@@ -1,0 +1,114 @@
+/* ---------- SIDEBAR CONTENT (refactor) ---------- */
+/* Base text elements unchanged */
+.name { font-size: 1.25rem; font-weight: 700; text-align: center; }
+.location { font-size: 0.9rem; text-align: center; opacity: 0.8; }
+
+.socials { display: flex; gap: 0.75rem; margin-top: 0.5rem; }
+
+.socials a img {
+  width: 24px; height: 24px;
+  transition: transform 0.2s ease; filter: invert(0);
+}
+.socials a:hover img { transform: scale(1.15); }
+
+/* ---------- Avatar (hold-to-toggle) ---------- */
+.pfp-wrap {
+  --size: 180px;
+  --ring: 3px;                 /* idle/static border thickness */
+  --ring-color: var(--accent);
+  --track-color: color-mix(in srgb, var(--accent) 18%, transparent);
+
+  position: relative;
+  width: var(--size);
+  height: var(--size);
+  margin-inline: auto;
+  border-radius: 50%;
+
+
+  --progress: 0.75px; 
+  --offset: -10px;
+}
+
+body[data-theme="dark"] .pfp-wrap {
+  --ring-color: var(--accent-dark);
+  --track-color: color-mix(in srgb, var(--accent-dark) 18%, transparent);
+
+}
+
+/* Stack images; no native borders on the <img> */
+.pfp-wrap .pfp {
+  position: absolute;
+  inset: 0;
+  width: 100%; height: 100%;
+  border-radius: 50%;
+  object-fit: cover;
+  border: none;
+}
+
+/* Show one image based on state */
+.pfp-wrap[data-state="base"] .pfp-base { opacity: 1; transition: opacity 10ms linear; }
+.pfp-wrap[data-state="base"] .pfp-alt  { opacity: 0; transition: opacity 10ms linear; }
+.pfp-wrap[data-state="alt"]  .pfp-base { opacity: 0; transition: opacity 10ms linear; }
+.pfp-wrap[data-state="alt"]  .pfp-alt  { opacity: 1; transition: opacity 10ms linear; }
+
+/* Static full border (visible when not pending) */
+.pfp-wrap::after {
+  content: "";
+  position: absolute;
+  inset: calc(-1 * var(--ring));
+  border-radius: 50%;
+  background: conic-gradient(var(--ring-color) 0 360deg);
+  -webkit-mask: radial-gradient(farthest-side, transparent calc(100% - var(--ring)), #000 0);
+          mask: radial-gradient(farthest-side, transparent calc(100% - var(--ring)), #000 0);
+  opacity: 1;
+  transition: opacity 120ms linear;
+  pointer-events: none;
+}
+
+/* ---------- SVG throbber ---------- */
+.pfp-progress {
+  position: absolute;
+  inset: calc(var(--progress) * -1 + var(--offset));  
+  pointer-events: none;
+  opacity: 0;
+  transition: opacity 80ms linear;
+  display: block;                    /* avoid inline-SVG baseline quirks */
+}
+
+.pfp-progress .track,
+.pfp-progress .bar {
+  fill: none;
+  stroke-width: var(--progress);      /* <- must match the design thickness */
+}
+
+.pfp-progress .track { stroke: var(--track-color); }
+
+.pfp-progress .bar {
+  stroke: var(--ring-color);
+  stroke-linecap: round;
+  transform: rotate(-90deg);
+  transform-origin: 50% 50%;
+  stroke-dasharray: 1;   /* 2πr with r=20 for viewBox 44 */
+  stroke-dashoffset: 1;
+}
+
+/* When pending: hide static border, show SVG, and animate the bar from empty to full */
+.pfp-wrap.pending::after { opacity: 0; }
+.pfp-wrap.pending .pfp-progress { opacity: 1; }
+.pfp-wrap.pending .pfp-progress .bar {
+  animation: pfp-fill var(--hold-ms) linear forwards;
+}
+
+@keyframes pfp-fill {
+  to { stroke-dashoffset: 0; }
+}
+
+/* Generic .pfp fallback elsewhere on site */
+.pfp {
+  width: 180px; height: 180px;
+  border-radius: 50%;
+  object-fit: cover;
+  /* no border; .pfp-wrap draws borders */
+}
+
+
